@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <br>
+    <h1>{{title}}</h1>
+    {% if ver == 1 %}
+    <br>
+    <div class="row">
+        <div class="col-sm-9">Для ускорение подтверждения ника, установите в описание вашего профиля на сайте SubShield, следующий текст:</div>
+    </div>
+    <div class="col-sm-9">Я регистрируюсь на Shield Market - Мой ID {{text}}</div>
+    <br>
+    <br>
+    {% else %}
+        <p class="leade">
+            {{text}}
+        </p>
+    {% endif %}
+    <a class="btn btn-lg" href={{link}} role="button">{{back}}</a>
+    <br>
+</main>
+{% endblock %}

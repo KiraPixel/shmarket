@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+{{user['name']}}
+{% endblock %}
+
+{% block body %}
+
+<script>
+$(function () {
+  $('[data-toggle="check"]').tooltip()
+})
+</script>
+
+<div calss="main-body">
+	<div class="container my-5">
+		<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center">
+			<div class="row gutters-sm">
+				<div class="col-md-4 mb-3">
+					<div class="card ">
+						<div class="card-header">Основная информация</div>
+						<div calss="card-body ">
+							<dev class="d-flex flex-column align-items-center text-center">
+								<hr>
+								<img src= '{{user.avatar_url}}' class="rounded-circle" width="100">
+								<div class="mt-3">
+									<h4>{{user['name']}}</h4>
+									<p class="text-secondary mb-1">Денег на счету: {{info.money}}</p>
+									<p class="text-secondary mb-1">Роль: {{info.role}}</p>
+									<p class="text-secondary mb-1">Карта: {{info.card}}</p>
+									<p class="text-secondary mb-1">Дата регистрации: {{info.register_date}}</p>
+								</div>
+							</dev>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="card mb-3 ">
+						<div class="card-header">Интеграции</div>
+						<div class ="card-body">
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="d-flex">
+										<h6 class="mb-1">Minecraft ник:</h6>
+									</div>
+								</div>
+								<div class="col-sm-9 text-secondary" data-toggle="tooltip" title={{ver_info}}>
+									{{info.nick}}  <img src= '{{ver_scr}}' width="32">
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<h6 class="mb-0">IBM аккаунт:</h6>
+								</div>
+								<div class="col-sm-3">
+									{% if info.ibm == 1 %}
+									<div class="col-sm-9 text-secondary">Привязан</div>
+									{% else %}
+									<div class="col-sm-9 text-secondary">Нет привязки</div>
+									{% endif %}
+								</div>
+							</div>
+							<br>
+							<div class="d-flex flex-row bd-highlight mb-1">
+								<div class="bd-example">
+									{% if info.ibm == 0 %}
+									<a href="1" type="button" class="btn btn-dark px-4">Привязать IBM аккаунт</a>
+									{% endif %}
+
+									{% if ver_button == "0" %}
+									{% else %}
+									<a href="2" type="button" class="btn btn-success">{{ver_button}}</a>
+									{% endif %}
+									{% if info.salesman != 0 %}
+									{% elif info.verification == 2  %}
+									<a href="2" type="button" class="btn btn-success">Купить магазин</a>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+						<a type="button" href="3"class="btn btn-secondary px-4">Пополнить баланс</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-100">
+				<div class="card mb-3">
+					<div class="card-header">Покупки</div>
+						<div class ="card-body">
+							<h6 class="mb-0">Нет покупок :(</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+ERROR PAGE
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <br>
+    <h1>Покупка магазина</h1>
+    <p class="leade">
+        {% if client.verification != 2 %}
+        Вы не подтвердили свой Minecraft ник
+        {% else %}
+        <form method="post">
+            <br>
+            <label for="by">Вы готовы купить магазин за 45 алмазов?:</label>
+            <label for="by">При покупке магазина вы соглашаетесь с условиями для Владельцев магазина</label>
+            <input name="balance" type="number" class="form-control" id="by" min="0" max="10000" step="1" placeholder="100">
+            <br>
+            <input href="/me" class="btn-success btn-lg btn-block" type="submit" value="Купить магазин">
+            {% if client.ibm == 1%}
+            {% endif %}
+        </form>
+        {% endif %}
+    </p>
+    <a class="btn btn-lg" href="/" role="button">Вернуться в профиль</a>
+    <br>
+</main>
+{% endblock %}

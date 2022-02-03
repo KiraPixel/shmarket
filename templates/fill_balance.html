@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+ERROR PAGE
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <br>
+    <h1>Пополнение баланса</h1>
+    <p class="leade">
+        {% if client.verification != 2 %}
+        Вы не подтвердили свой Minecraft ник
+        {% else %}
+        <form method="post">
+            <br>
+            <label for="balance">На сколько вы хотите пополнить баланс:</label>
+            <input name="balance" type="number" class="form-control" id="balance" min="0" max="10000" step="1" placeholder="100">
+            <br>
+            <input href="/me" class="btn-success btn-lg btn-block" type="submit" name="check" value="Пополнить через Minecraft">
+            {% if client.ibm == 1%}
+            <input href="/me" class="btn-dark btn-lg btn-block" type="submit" name="check" value="Пополнить через IBM">
+            {% endif %}
+        </form>
+        {% endif %}
+    </p>
+    <a class="btn btn-lg" href="/" role="button">Вернуться в профиль</a>
+    <br>
+</main>
+{% endblock %}

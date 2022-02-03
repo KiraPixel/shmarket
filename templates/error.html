@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+
+
+{% block title %}
+ERROR PAGE
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <br>
+    <h1>Ошибка</h1>
+    <p class="leade">
+        {% if text == Null %}
+        Произошла какая-то ошибка
+        {% else %}
+        {{text}}
+        {% endif %}
+    </p>
+    <a class="btn btn-lg" href="/" role="button">Вернуться на главную</a>
+    <br>
+</main>
+{% endblock %}
